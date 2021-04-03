@@ -1,0 +1,22 @@
+{
+  "name": "jsnet",
+  "version": "1.0.0",
+  "description": "Js Net is a terminal program for executing web page shortcuts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex980102/jsnet.git"
+  },
+  "author": "Alejandro Sanchez Rodriguez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alex980102/jsnet/issues"
+  },
+  "homepage": "https://github.com/Alex980102/jsnet#readme",
+  "dependencies": {
+    "open": "^8.0.5"
+  }
+}
