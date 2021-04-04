@@ -1,13 +1,10 @@
 const { count } = require('console');
+const fs = require('fs'); 
 const open = require('open');
-let rutas = {
+let jsonData = require('./routes.json');
 
-    'rutas': {
-        'Udemy': 'https://www.udemy.com/',
-        'Youtube': 'https://www.youtube.com/?hl=es-419&gl=MX',
-        'FreeCodeCamp': 'https://www.freecodecamp.org/',
-    },
-    
+let rutas = {
+    rutas: jsonData,
     get getRutas () {
     let count = 0;
     for (let i in rutas.rutas){
