@@ -1,5 +1,4 @@
 const { count } = require('console');
-const fs = require('fs'); 
 const open = require('open');
 let jsonData = require('./routes.json');
 
@@ -44,6 +43,13 @@ let preguntar = () => {
             readline.close();
             console.clear();
             preguntar();
+        }else if(name === 'http'){
+            readline.question('Buscar http:', name => {
+                open('http://'+name)
+                readline.close();
+                console.clear()
+                preguntar(); 
+            });
         }else{
             open('https://'+name)
             readline.close();
