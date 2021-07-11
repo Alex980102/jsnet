@@ -18,7 +18,7 @@ const rutas = () => {
 /**
  * Es la funcion que nos permite abrir la pagina que decide el usuario
  * @name openNav
- * @param {number} number
+ * @param {number | string} number
  */
 const openNav = (number) => {
     let count = 0;

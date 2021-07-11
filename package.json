@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Alex980102/jsnet#readme",
   "dependencies": {
-    "open": "^8.0.5"
+    "open": "^8.2.0"
   }
 }

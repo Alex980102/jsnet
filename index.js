@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const open = require('open');
 const {rutas, openNav, jsonLength} = require('./helpers/rutas');
 const Readline = require('readline');
@@ -15,27 +16,30 @@ const readline = Readline.createInterface({
 /**
  * Es la funcion que nos permite leer el input del usuario
  * @name leer
- * @param {string} req
+ * @param {string | number | NaN} req
  */
-const leer = (req) => {
-    if (req === '0') {
+const leer = async (req) => {
+    if (req === 0) {
         console.log('Adios');
         readline.close();
-    } else if (req > '0' && req < `${jsonLength}`) {
-        let newName = parseInt(req);
-        openNav(newName);
-        console.clear();
-        preguntar();
+    } else if (req > 0) {
+        let newName = req;
+        await openNav(newName);
+        readline.close();
     } else if (req === 'http') {
-        readline.question('Buscar http:', name => {
-            open('http://' + name)
-            console.clear()
-            preguntar();
+        readline.question('Buscar http:', async name => {
+            await open('http://' + name)
+            readline.close();
+        });
+    } else if (req === 'https') {
+        readline.question('Buscar https:', async name => {
+            await open('https://' + name)
+            readline.close();
         });
     } else {
-        open('https://' + req);
+        await open('https://www.google.com/search?q=' + req);
         console.clear();
-        preguntar();
+        readline.close();
     }
 }
 
@@ -49,7 +53,13 @@ const preguntar = () => {
     console.log('Ó intriduce un URL');
 
     readline.question('Buscar: ', name => {
-        leer(name);
+        const nameint = parseInt(name);
+        if ( isNaN(nameint)) {
+            leer(name);
+        }else{
+            leer(nameint);
+        }
+        
     });
 };
 
