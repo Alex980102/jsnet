@@ -1,0 +1,57 @@
+{
+    "cells": [
+        {
+            "language": "typescript",
+            "source": [
+                "import axios, {AxiosRequestConfig, AxiosResponse} from \"axios\";\n\nvar responses = {};\nconst jsonData = async() => {\n    let axiosRoutes = await axiosRequest();\n    let counter = 1;\n    for (const key in axiosRoutes) {\n        if (Object.prototype.hasOwnProperty.call(axiosRoutes, key)) {\n            const element = axiosRoutes[key];\n            console.log(`Preciona ${counter} para ${key}`);\n            counter ++;\n        }\n    }\n}\n\nconst axiosRequest = async() => {\n    const config: AxiosRequestConfig = {\n        method: 'get',\n        url: 'http://162.240.4.128:3000/',\n        headers: {}\n    }\n    await axios(config)\n        .then((response: AxiosResponse) => {\n            responses = response.data;\n        })\n        .catch((error) => {\n            return error;\n        })\n    return responses;\n}\n\njsonData();"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "Preciona 1 para Udemy",
+                                "Preciona 2 para Youtube",
+                                "Preciona 3 para FreeCodeCamp",
+                                "Preciona 4 para CodeCademy",
+                                "Preciona 5 para Google Drive",
+                                "Preciona 6 para Any.do",
+                                "Preciona 7 para Miro",
+                                "Preciona 8 para Github.com",
+                                "Preciona 9 para WHM",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "import open from 'open';\n\nconst openExample = async() => {\n    await open('https://www.google.com/search?q=hola+mundo+');\n}\nopenExample();"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "typescript",
+            "source": [
+                "const WordCount = (str) => { \n    let word = str.split(\" \");\n    let newWord = [];\n    for (let i = 0; i < word.length; i++) {\n        newWord.push(word[i]);\n        newWord.push('+')\n    }\n    return newWord;\n  }\n  \n  console.log(WordCount(\"hello world\"));"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[ 'hello', '+', 'world', '+' ]",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
