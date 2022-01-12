@@ -20,35 +20,67 @@ const leer = async (req: number) => {
     } else if (req > 0) {
         let newName = req;
         await openNav(newName);
-        // readline.close();
+        // preguntar();
         console.clear();
-        preguntar();
+        readline.close();
     }
 }
 
 const leerString = async (req: String) => {
     await req;
-    if (req === 'http') {
+    if (req === 'hp') {
         readline.question('Buscar http:', async name => {
             await open('http://' + name)
-            // readline.close();
+            readline.close();
             console.clear();
-            preguntar();
+            // preguntar();
         });
-    } else if (req === 'https') {
+    } else if (req === 'hs') {
         readline.question('Buscar https:', async name => {
             await open('https://' + name)
-            // readline.close();
+            readline.close();
             console.clear();
-            preguntar();
+            // preguntar();
         });
+    } else if (req === 'yo') {
+        // https://www.youtube.com/results?search_query=
+        readline.question('Buscar youtube:', async name => {
+            let multiWord = await WordCount(name);
+            await open(`https://www.youtube.com/results?search_query=${multiWord}`);
+            console.log(`la busqueda es: ${multiWord}`);
+            console.clear();
+            readline.close();
+            // preguntar();
+            });
+    } else if (req === 'te') {
+        // Translate english - spanish
+        // https://translate.google.com/?hl=es&sl=en&tl=es&text=${}%0A&op=translate
+        readline.question('Buscar traducir:', async name => {
+            let multiWord = await WordCount(name);
+            await open(`https://translate.google.com/?hl=es&sl=en&tl=es&text=${multiWord}%0A&op=translate`);
+            // console.log(`la busqueda es: ${multiWord}`);
+            console.clear();
+            readline.close();
+            // preguntar();
+            });
+    } else if (req === 'ts') {
+        // Translate spanish - english
+        // https://translate.google.com/?hl=es&sl=en&tl=es&text=${}%0A&op=translate
+        readline.question('Buscar traducir:', async name => {
+            let multiWord = await WordCount(name);
+            await open(`https://translate.google.com/?hl=es&sl=es&tl=en&text=${multiWord}%0A&op=translate`);
+            // console.log(`la busqueda es: ${multiWord}`);
+            console.clear();
+            readline.close();
+            // preguntar();
+            });
     } else {
         let multiWord = await WordCount(req);
         await open(`https://www.google.com/search?q=${multiWord}`);
         console.log(`la busqueda es: ${multiWord}`);
         console.clear();
-        // readline.close();
-        preguntar();
+        readline.close();
+        // preguntar();
     }
 
 }
@@ -78,3 +110,5 @@ const WordCount = async (str: any) => {
 
     return newWord.join('');
 }
+
+preguntar();
