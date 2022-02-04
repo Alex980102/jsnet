@@ -74,6 +74,17 @@ const leerString = async (req: String) => {
             readline.close();
             // preguntar();
             });
+    } else if (req === 'wiki') {
+        // Translate spanish - english
+        // https://translate.google.com/?hl=es&sl=en&tl=es&text=${}%0A&op=translate
+        readline.question('Buscar Wikipedia:', async name => {
+            let multiWord = await WordCount(name);
+            await open(`https://es.wikipedia.org/wiki/${name}`);
+            // console.log(`la busqueda es: ${multiWord}`);
+            console.clear();
+            readline.close();
+            // preguntar();
+            });
     } else {
         let multiWord = await WordCount(req);
         await open(`https://www.google.com/search?q=${multiWord}`);

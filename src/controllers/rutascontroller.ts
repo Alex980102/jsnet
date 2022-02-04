@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig, AxiosResponse} from "axios";
+import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 import open from 'open';
 
 var responses: any;
